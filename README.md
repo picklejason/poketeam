@@ -15,3 +15,5 @@ Users can select 6 pokémons to form their team. The database stores their selec
 ## Demo
 
 - View application [Demo](https://youtu.be/kgQzDpTvJl0).
+
+- Try it out [here](https://www.poketeam.tk/).
