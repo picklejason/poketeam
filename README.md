@@ -11,3 +11,7 @@ Users can select 6 pokémons to form their team. The database stores their selec
 ## API links
 
 - This project was built using [PokéAPI](https://pokeapi.co/).
+
+## Demo
+
+- View application [Demo](https://youtu.be/kgQzDpTvJl0).
