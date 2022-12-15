@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Process Team</title>
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
+    <link href="styles/Pokemon.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  </head>
+
+  <body>
+    <div class="title">
+      <h1><a href="/">Pokéteam</a></h1>
+    </div>
+
+    <div class="container form-container">
+      <form action="/processTeam" method="post">
+        <label><strong>Name</strong></label>
+        <br />
+        <input type="text" name="name" required />
+        <br />
+        <label for="pokemon"><strong>Pick your Pokémons</strong></label>
+        <br />
+        <!-- <input list="pokemons" id="pokemon1" name="pokemon" /> -->
+        <%- pick %>
+        <!-- <input list="pokemons" id="pokemon2" name="pokemon" /> -->
+        <%- pick %>
+        <!-- <input list="pokemons" id="pokemon3" name="pokemon" /> -->
+        <%- pick %>
+        <!-- <input list="pokemons" id="pokemon4" name="pokemon" /> -->
+        <%- pick %>
+        <!-- <input list="pokemons" id="pokemon5" name="pokemon" /> -->
+        <%- pick %>
+        <!-- <input list="pokemons" id="pokemon6" name="pokemon" /> -->
+        <%- pick %>
+        <input type="submit" value="Add" />
+      </form>
+    </div>
+  </body>
+</html>
