@@ -106,6 +106,29 @@ app.get("/view/:name", async (req, res) => {
   }
 });
 
+app.get("/pokemon/:pokemon", async (req, res) => {
+  try {
+    let p = await fetchPokemon(req.params.pokemon);
+    let data = {
+      name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
+      sprite: p.sprites.other["official-artwork"].front_default,
+      type: p.types
+        .map(
+          (type) =>
+            type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)
+        )
+        .join(" / "),
+      id: p.id,
+      weight: p.weight,
+      height: p.height,
+    };
+    console.log(data);
+    res.render("pokemon", data);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 app.get("/archive", async (req, res) => {
   try {
     let trainers = await getAllTrainers();
@@ -126,7 +149,7 @@ app.get("/archive", async (req, res) => {
       });
       table += `<tr><td><a href="/view/${t.name}">${t.name}</a></td><td>`;
       sprites.forEach((s) => {
-        table += `<img src="${s}">`;
+        table += `<a href="/pokemon/${s.match(/\d+/)[0]}"><img src="${s}"></a>`;
       });
       table += `</td></tr>`;
     }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%- name %></title>
+    <link href="../styles/index.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/Pokemon.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  </head>
+  <body>
+    <h1><%- name %></h1>
+    <h3>#<%= id %></h3>
+    <img src="<%= sprite %>" alt="<%= sprite %>" />
+    <div class="attributes">
+      <p><strong>Type: <%= type %></strong></p>
+      <p>
+        <strong
+          >Height: <%= (height * 0.1).toFixed(2) %> m | Weight: <%= (weight *
+          0.1).toFixed(2) %> kg</strong
+        >
+      </p>
+    </div>
+    <h2><a href="javascript:history.back()">Back</a></h2>
+  </body>
+</html>
