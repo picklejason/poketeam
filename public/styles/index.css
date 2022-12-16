@@ -5,7 +5,7 @@
 body {
   background: #EFEFBB;
   background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
-  background-image: url('/images/bgt.png'), linear-gradient(#D4D3DD, #EFEFBB);
+  background-image: linear-gradient(#D4D3DD, #EFEFBB);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -14,6 +14,10 @@ body {
   font-family: 'Pokemon';
   text-align: center;
   letter-spacing: 1px;
+}
+
+.bg {
+  background-image: url('/images/bgt.png'), linear-gradient(#D4D3DD, #EFEFBB) !important;
 }
 
 a {
@@ -30,11 +34,17 @@ a:hover {
 h1 {
   font-size: 5em;
   letter-spacing: 3px;
-  margin-top: 0;
+  margin: 0;
 }
 
 h2 {
   font-size: 3em;
+  margin: 0
+}
+
+h3 {
+  font-size: 2em;
+  margin: 0;
 }
 
 .container {
@@ -57,4 +67,15 @@ h2 {
 
 .all table {
   background-image: linear-gradient(#D4D3DD, #EFEFBB);
+}
+
+.team {
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  max-width: 1900px;
+}
+
+.team img {
+  width: 15%; 
 }
