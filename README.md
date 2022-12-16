@@ -1,12 +1,12 @@
 # Pokéteam
 
-Made by Jason Chen
+- Made by Jason Chen
 
-Directory ID - jchen159
+- Directory ID - jchen159
 
 ## Description
 
-Users can select 6 pokémons to form their team. The database stores their selected pokémon. Users can view all submissions in archive.
+- Users can select 6 pokémons to form their team. The team is then stored in a database. Users can view all submissions in the archive and view individual pokémon info.
 
 ## API links
 
@@ -14,6 +14,6 @@ Users can select 6 pokémons to form their team. The database stores their selec
 
 ## Demo
 
-- View application [Demo](https://youtu.be/kgQzDpTvJl0).
+- View application [Demo](https://youtu.be/BgoeT_1Hb-I).
 
 - Try it out [here](https://www.poketeam.tk/).
