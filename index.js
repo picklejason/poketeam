@@ -122,7 +122,6 @@ app.get("/pokemon/:pokemon", async (req, res) => {
       weight: p.weight,
       height: p.height,
     };
-    console.log(data);
     res.render("pokemon", data);
   } catch (err) {
     console.error(err);
