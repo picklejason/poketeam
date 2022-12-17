@@ -71,7 +71,8 @@ app.post("/processTeam", async (req, res) => {
 
     let data = {
       name: req.body.name,
-      sprites: sprites,
+      pokemons,
+      sprites,
     };
     res.render("team", data);
   } catch (err) {
@@ -98,7 +99,8 @@ app.get("/view/:name", async (req, res) => {
 
     let data = {
       name: req.params.name,
-      sprites: sprites,
+      pokemons,
+      sprites,
     };
     res.render("team", data);
   } catch (err) {

@@ -76,3 +76,11 @@ h3 {
 .team img {
   width: 15%; 
 }
+
+.select {
+  transition: all 0.7s ease;
+}
+
+.select:hover {
+  transform: scale(1.1);
+}

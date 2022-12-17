@@ -2,17 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title><%- name %>'s Pokémon</title>
+    <title><%- name %>'s Team</title>
     <link href="../styles/index.css" rel="stylesheet" type="text/css" />
     <link href="../styles/Pokemon.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <h1><%- name %>'s Pokémon</h1>
+    <h1><%- name %>'s Team</h1>
     <div class="team">
-      <% sprites.forEach(sprite => { %>
-      <img src="<%= sprite %>" alt="<%= sprite %>" />
-      <% }); %>
+      <% pokemons.forEach((pokemon, index) => { %>
+      <a href="../pokemon/<%= pokemon %>"
+        ><img
+          src="<%= sprites[index] %>"
+          alt="<%= pokemon %>"
+          class="select" /></a
+      ><% }); %>
     </div>
     <h2><a href="javascript:history.back()">Back</a></h2>
     <h2><a href="/">Home</a></h2>
