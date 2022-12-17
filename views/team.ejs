@@ -11,14 +11,14 @@
     <h1><%- name %>'s Team</h1>
     <div class="team">
       <% pokemons.forEach((pokemon, index) => { %>
-      <a href="../pokemon/<%= pokemon %>"
+      <a class="select-text" href="../pokemon/<%= pokemon %>"
         ><img
           src="<%= sprites[index] %>"
           alt="<%= pokemon %>"
-          class="select" /></a
+          class="select-image" /></a
       ><% }); %>
     </div>
-    <h2><a href="javascript:history.back()">Back</a></h2>
-    <h2><a href="/">Home</a></h2>
+    <h2><a class="select-text" href="javascript:history.back()">Back</a></h2>
+    <h2><a class="select-text" href="/">Home</a></h2>
   </body>
 </html>

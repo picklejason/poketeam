@@ -56,19 +56,13 @@ app.post("/processTeam", async (req, res) => {
   try {
     let p = await addPokemon(req.body);
     let pokemons = req.body.pokemons;
-    let sprites = [];
-    const results = await Promise.all(
+    const sprites = await Promise.all(
       pokemons.map(async (pokemon) => {
         let p = await fetchPokemon(pokemon);
         let sprite = p.sprites.other["official-artwork"].front_default;
         return sprite;
       })
     );
-
-    results.forEach((result) => {
-      sprites.push(result);
-    });
-
     let data = {
       name: req.body.name,
       pokemons,
@@ -136,8 +130,7 @@ app.get("/archive", async (req, res) => {
     var table = "<table border='1'><tr><th>Name</th><th>Pokémons</th></tr>";
     for (const t of trainers) {
       let pokemons = t.pokemons;
-      let sprites = [];
-      const results = await Promise.all(
+      const sprites = await Promise.all(
         pokemons.map(async (pokemon) => {
           let p = await fetchPokemon(pokemon);
           let sprite =
@@ -145,12 +138,9 @@ app.get("/archive", async (req, res) => {
           return sprite;
         })
       );
-      results.forEach((result) => {
-        sprites.push(result);
-      });
-      table += `<tr><td><a href="/view/${t.name}">${t.name}</a></td><td>`;
-      sprites.forEach((s) => {
-        table += `<a href="/pokemon/${s.match(/\d+/)[0]}"><img src="${s}"></a>`;
+      table += `<tr><td><a href="/view/${t.name}" class="select-text">${t.name}</a></td><td>`;
+      sprites.forEach((s, i) => {
+        table += `<a href="/pokemon/${pokemons[i]}"><img src="${s}" alt="${pokemons[i]}" class="select-image"></a>`;
       });
       table += `</td></tr>`;
     }
@@ -184,7 +174,6 @@ async function addPokemon(body) {
   try {
     const query = { name: body.name };
     const doc = await collection.findOne(query);
-    console.log(query);
     if (doc) {
       const update = { $set: { pokemons: body.pokemons } };
       await collection.updateOne(query, update);
