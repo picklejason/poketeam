@@ -21,23 +21,49 @@ body {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 5rem;
   letter-spacing: 3px;
   margin: 0;
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3rem;
   margin: 0
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 2rem;
   margin: 0;
 }
 
+label {
+  font-size: 2rem;
+}
+
+input[type="text"] {
+  color: #333;
+	margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  border: none;
+  width: 30%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+input[type="submit"] { 
+  font: 700 2em "Pokemon";
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+}
+
 .container {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -56,10 +82,12 @@ h3 {
 }
 
 .team {
-  margin: 0 auto;
-  text-align: center;
-  justify-content: center;
-  max-width: 1900px;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1920px;
 }
 
 .team img {
@@ -77,10 +105,9 @@ h3 {
 .select-text {
   text-decoration: none !important;
   color: black;
-  transition: all .2s ease-in-out;
 }
 
 .select-text:hover {
-  font-size: larger;
   color: white;
 }
+

@@ -17,12 +17,12 @@
       <form action="/processTeam" method="post">
         <label><strong>Name</strong></label>
         <br />
-        <input type="text" name="name" required />
-        <br />
+        <input type="text" name="name" required autocomplete="off" />
         <label for="pokemon"><strong>Pick your Pokémons</strong></label>
         <br />
         <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %>
-        <input type="submit" value="Add" />
+        <br />
+        <input class="select-text" type="submit" />
       </form>
     </div>
   </body>
