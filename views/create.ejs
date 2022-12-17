@@ -17,7 +17,14 @@
       <form action="/processTeam" method="post">
         <label><strong>Name</strong></label>
         <br />
-        <input type="text" name="name" required autocomplete="off" />
+        <input
+          type="text"
+          name="name"
+          maxlength="30"
+          pattern="^[\w\s-]+"
+          required
+          autocomplete="off"
+        />
         <label for="pokemon"><strong>Pick your Pokémons</strong></label>
         <br />
         <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %>
