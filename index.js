@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
+const { check, validationResult } = require("express-validator");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -52,27 +53,46 @@ app.get("/create", async (req, res) => {
   }
 });
 
-app.post("/processTeam", async (req, res) => {
-  try {
-    let p = await addPokemon(req.body);
-    let pokemons = req.body.pokemons;
-    const sprites = await Promise.all(
-      pokemons.map(async (pokemon) => {
-        let p = await fetchPokemon(pokemon);
-        let sprite = p.sprites.other["official-artwork"].front_default;
-        return sprite;
-      })
-    );
-    let data = {
-      name: req.body.name,
-      pokemons,
-      sprites,
-    };
-    res.render("team", data);
-  } catch (err) {
-    console.error(err);
+app.post(
+  "/processTeam",
+  check("name")
+    .notEmpty()
+    .withMessage("Name cannot be empty.")
+    .isLength({ max: 30 })
+    .withMessage("Name cannot be longer than 30 characters.")
+    .matches(/^[\w\s-]+/)
+    .withMessage(
+      "Name can only contain letters, numbers, spaces, dashes and underscores."
+    ),
+  check("pokemons")
+    .notEmpty()
+    .withMessage("You must select at least one Pokémon."),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      let p = await addPokemon(req.body);
+      let pokemons = req.body.pokemons;
+      const sprites = await Promise.all(
+        pokemons.map(async (pokemon) => {
+          let p = await fetchPokemon(pokemon);
+          let sprite = p.sprites.other["official-artwork"].front_default;
+          return sprite;
+        })
+      );
+      let data = {
+        name: req.body.name,
+        pokemons,
+        sprites,
+      };
+      res.render("team", data);
+    } catch (err) {
+      console.error(err);
+    }
   }
-});
+);
 
 app.get("/view/:name", async (req, res) => {
   try {
