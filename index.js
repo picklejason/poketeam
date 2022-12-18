@@ -178,7 +178,7 @@ async function fetchPokemon(pokemon) {
 
 async function getAllPokemons() {
   try {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=493`);
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
     const data = await res.json();
     return data;
   } catch (err) {
