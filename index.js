@@ -146,11 +146,11 @@ app.get("/pokemon/:pokemon", async (req, res) => {
 
 app.get("/archive", async (req, res) => {
   try {
-    let trainers = await getAllTrainers();
-    var table = "<table border='1'><tr><th>Name</th><th>Pokémons</th></tr>";
+    let [trainers, pages, current] = await getAllTrainers(req);
+    let sprites = [];
     for (const t of trainers) {
       let pokemons = t.pokemons;
-      const sprites = await Promise.all(
+      const results = await Promise.all(
         pokemons.map(async (pokemon) => {
           let p = await fetchPokemon(pokemon);
           let sprite =
@@ -158,13 +158,9 @@ app.get("/archive", async (req, res) => {
           return sprite;
         })
       );
-      table += `<tr><td><a href="/view/${t.name}" class="select-text">${t.name}</a></td><td>`;
-      sprites.forEach((s, i) => {
-        table += `<a href="/pokemon/${pokemons[i]}"><img src="${s}" alt="${pokemons[i]}" class="select-image"></a>`;
-      });
-      table += `</td></tr>`;
+      sprites.push(results);
     }
-    res.render("archive", { table });
+    res.render("archive", { trainers, sprites, pages, current });
   } catch (err) {
     console.error(err);
   }
@@ -211,10 +207,18 @@ async function addPokemon(body) {
   }
 }
 
-async function getAllTrainers() {
-  const cursor = collection.find({});
-  const result = await cursor.toArray();
-  return result;
+async function getAllTrainers(req) {
+  const perPage = 8;
+  const total = await collection.countDocuments();
+  const pages = Math.ceil(total / perPage);
+  const page = req.query.page || 1;
+  const startFrom = (page - 1) * perPage;
+  const result = await collection
+    .find({})
+    .skip(startFrom)
+    .limit(perPage)
+    .toArray();
+  return [result, pages, page];
 }
 
 app.listen(portNumber);
