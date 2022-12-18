@@ -41,13 +41,8 @@ app.get("/", async (req, res) => {
 
 app.get("/create", async (req, res) => {
   try {
-    pick = `<select name=pokemons id=pokemons required>`;
     pokemons = await getAllPokemons();
-    pokemons.results.forEach((pokemon) => {
-      pick += `<option value="${pokemon.name}">${pokemon.name}</option>`;
-    });
-    pick += `</select>`;
-    res.render("create", { pick: pick });
+    res.render("create", { pokemons });
   } catch (err) {
     console.error(err);
   }

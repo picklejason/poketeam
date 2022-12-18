@@ -27,7 +27,14 @@
         />
         <label for="pokemon"><strong>Pick your Pokémons</strong></label>
         <br />
-        <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %> <%- pick %>
+        <% for (let i = 0; i < 6; i++) { %>
+        <select name="pokemons" id="pokemons" required>
+          <option value="" disabled selected>Select a Pokémon</option>
+          <% pokemons.results.forEach((pokemon) => { %>
+          <option value="<%= pokemon.name %>"><%= pokemon.name %></option>
+          <% }); %>
+        </select>
+        <% } %>
         <br />
         <input class="select-text" type="submit" />
       </form>
