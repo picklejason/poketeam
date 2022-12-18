@@ -3,6 +3,8 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
+const NodeCache = require("node-cache");
+const myCache = new NodeCache();
 const { check, validationResult } = require("express-validator");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,7 +43,7 @@ app.get("/", async (req, res) => {
 
 app.get("/create", async (req, res) => {
   try {
-    pokemons = await getAllPokemons();
+    let pokemons = await getAllPokemons();
     res.render("create", { pokemons });
   } catch (err) {
     console.error(err);
@@ -163,9 +165,14 @@ app.get("/archive", async (req, res) => {
 
 async function fetchPokemon(pokemon) {
   try {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-    const data = await res.json();
-    return data;
+    if (myCache.has(pokemon)) {
+      return myCache.get(pokemon);
+    } else {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+      const data = await res.json();
+      myCache.set(pokemon, data, 3600);
+      return data;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -173,9 +180,14 @@ async function fetchPokemon(pokemon) {
 
 async function getAllPokemons() {
   try {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
-    const data = await res.json();
-    return data;
+    if (myCache.has("allPokemons")) {
+      return myCache.get("allPokemons");
+    } else {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
+      const data = await res.json();
+      myCache.set("allPokemons", data, 3600);
+      return data;
+    }
   } catch (err) {
     console.log(err);
   }
