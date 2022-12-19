@@ -12,7 +12,7 @@ body {
 	margin: 0;
   font-family: 'Pokemon';
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .bg {
@@ -83,10 +83,13 @@ input[type="submit"] {
 
 .all table {
   background-image: linear-gradient(#D4D3DD, #EFEFBB);
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 
-.all table, .all th, .all tr, .all td {
-  border: 1px solid black;
+.all tr, .all td {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .all .tname {
@@ -95,6 +98,15 @@ input[type="submit"] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.all th {
+  font-size: 2rem;
+}
+
+.all td {
+  font-size: 1.15rem;
+  font-weight: bold;
 }
 
 .team {
