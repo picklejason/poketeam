@@ -150,8 +150,7 @@ app.get("/archive", async (req, res) => {
       const results = await Promise.all(
         pokemons.map(async (pokemon) => {
           let p = await fetchPokemon(pokemon);
-          let sprite =
-            p.sprites.versions["generation-viii"].icons.front_default;
+          let sprite = p.sprites.front_default;
           return sprite;
         })
       );
@@ -183,7 +182,7 @@ async function getAllPokemons() {
     if (myCache.has("allPokemons")) {
       return myCache.get("allPokemons");
     } else {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=-1`);
       const data = await res.json();
       myCache.set("allPokemons", data, 3600);
       return data;

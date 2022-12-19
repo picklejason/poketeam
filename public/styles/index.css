@@ -151,3 +151,13 @@ input[type="submit"] {
   color: white;
   font-size: 2rem;
 }
+
+.icon {
+  width: 58px;
+  height: 58px;
+}
+
+.sprites img {
+  margin: 4px 8px;
+  margin-bottom: -10px;
+}

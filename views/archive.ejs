@@ -25,11 +25,11 @@
               ><%= trainers[i].name %>
             </a>
           </td>
-          <td>
+          <td class="sprites">
             <% sprites[i].forEach((sprite, index) => { %>
             <a href="/pokemon/<%=trainers[i].pokemons[index] %>">
               <img
-                class="select-image"
+                class="select-image icon"
                 src="<%= sprite %>"
                 alt="<%= trainers[i].pokemons[index] %>"
               />
