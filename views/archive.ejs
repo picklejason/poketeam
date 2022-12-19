@@ -48,7 +48,9 @@
         </li>
         <% } else { %>
         <li>
-          <strong><a href="/archive/?page=1">&lt;&lt;</a></strong>
+          <strong>
+            <a class="select-text" href="/archive/?page=1">&lt;&lt;</a>
+          </strong>
         </li>
         <% } %> <% let i = (Number(current) > 5 ? Number(current) - 4 : 1) %> <%
         if (i !== 1) { %>
@@ -61,7 +63,9 @@
           <strong><a><%= i %></a></strong>
         </li>
         <% } else { %>
-        <li><a href="/archive/?page=<%= i %>"><%= i %></a></li>
+        <li>
+          <a class="select-text" href="/archive/?page=<%= i %>"><%= i %></a>
+        </li>
         <% } %> <% if (i == Number(current) + 4 && i < pages) { %>
         <li class="disabled">
           <strong><a>...</a></strong>
@@ -72,7 +76,11 @@
         </li>
         <% } else { %>
         <li>
-          <strong><a href="/archive/?page=<%= pages %>">&gt;&gt;</a></strong>
+          <strong>
+            <a class="select-text" href="/archive/?page=<%= pages %>">
+              &gt;&gt;
+            </a>
+          </strong>
         </li>
         <% } %>
       </ul>

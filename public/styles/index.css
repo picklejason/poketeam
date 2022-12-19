@@ -7,8 +7,8 @@ body {
   background-image: linear-gradient(#D4D3DD, #EFEFBB);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  background-position: center center;
+  background-size: contain;
 	margin: 0;
   font-family: 'Pokemon';
   text-align: center;
@@ -26,12 +26,14 @@ a {
 
 h1 {
   font-size: 5rem;
+  font-size: calc(3vw + 3vh);
   letter-spacing: 3px;
   margin: 0;
 }
 
 h2 {
   font-size: 3rem;
+  font-size: calc(1.5vw + 1.5vh);
   margin: 0
 }
 
@@ -133,6 +135,7 @@ input[type="submit"] {
 .select-text {
   text-decoration: none !important;
   color: black;
+  transition: color 0.5s; 
 }
 
 .select-text:hover {
@@ -152,16 +155,8 @@ input[type="submit"] {
   display: inline-block;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
-  transition: color 0.5s, font-size 0.5s;
   cursor: pointer;
-  border-radius: 20rem;
   font-size: 1.5rem;
-
-}
-
-.pagination a:hover {
-  color: white;
-  font-size: 2rem;
 }
 
 .icon {
@@ -172,4 +167,13 @@ input[type="submit"] {
 .sprites img {
   margin: 4px 8px;
   margin-bottom: -10px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.active a {
+  cursor: default;
 }
