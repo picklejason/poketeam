@@ -8,21 +8,27 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <h1><%- name %></h1>
-    <h3>#<%= id %></h3>
-    <img src="<%= sprite %>" alt="<%= sprite %>" />
-    <div class="attributes">
-      <p><strong>Type: <%= type %></strong></p>
-      <p>
-        <strong
-          >Height: <%= (height * 0.1).toFixed(2) %> m | Weight: <%= (weight *
-          0.1).toFixed(2) %> kg</strong
-        >
-      </p>
+    <div class="link-container">
+      <h2>
+        <a class="select-text back" href="javascript:history.back()">
+          &#8249; Back
+        </a>
+      </h2>
+      <h2><a class="select-text home" href="/">Home</a></h2>
     </div>
-    <div class="container">
-      <h2><a class="select-text" href="javascript:history.back()">Back</a></h2>
-      <h2><a class="select-text" href="/">Home</a></h2>
+    <div class="pokemon-container">
+      <h1><%- name %></h1>
+      <h3>#<%= id %></h3>
+      <img src="<%= sprite %>" alt="<%= sprite %>" />
+      <div class="attributes">
+        <p><strong>Type: <%= type %></strong></p>
+        <p>
+          <strong>
+            Height: <%= (height * 0.1).toFixed(2) %> m | Weight: <%= (weight *
+            0.1).toFixed(2) %> kg
+          </strong>
+        </p>
+      </div>
     </div>
   </body>
 </html>

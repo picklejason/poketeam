@@ -26,7 +26,7 @@ a {
 
 h1 {
   font-size: 5rem;
-  font-size: calc(3vw + 3vh);
+  font-size: calc(2.75vw + 2.75vh);
   letter-spacing: 3px;
   margin: 0;
 }
@@ -39,6 +39,13 @@ h2 {
 
 h3 {
   font-size: 2rem;
+  font-size: calc(1vw + 1vh);
+  margin: 0;
+}
+
+p {
+  font-size: 1.5rem;
+  font-size: calc(0.75vw + 0.75vh);
   margin: 0;
 }
 
@@ -47,16 +54,13 @@ label {
 }
 
 input[type="text"] {
-  color: #333;
+  font-family: 'Pokemon';
+  font-weight: bold;
+  text-align: center;
 	margin: 0 auto;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-  background-color: white;
-  border: none;
-  width: 30%;
+  border-radius: 0.5rem;
+  width: 12%;
   display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
 }
 
 input[type="submit"] { 
@@ -70,11 +74,35 @@ input[type="submit"] {
 
 .container {
   position: fixed;
+  width: 100%;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 5em;
+  margin-bottom: 2.5rem;
 }
+
+.pokemon-container {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link-container {
+  position: relative;
+  top: 0;
+}
+
+.back {
+  float:left;
+  margin-left: 2rem;
+}
+
+.home {
+  float:right;
+  margin-right: 2rem;
+}
+
 
 .all {
   display: flex;

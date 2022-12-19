@@ -8,6 +8,14 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
+    <div class="link-container">
+      <h2>
+        <a class="select-text back" href="javascript:history.back()">
+          &#8249; Back
+        </a>
+      </h2>
+      <h2><a class="select-text home" href="/">Home</a></h2>
+    </div>
     <h1><%- name %>'s Team</h1>
     <div class="team">
       <% pokemons.forEach((pokemon, index) => { %>
@@ -17,10 +25,6 @@
           alt="<%= pokemon %>"
           class="select-image" /></a
       ><% }); %>
-    </div>
-    <div class="container">
-      <h2><a class="select-text" href="javascript:history.back()">Back</a></h2>
-      <h2><a class="select-text" href="/">Home</a></h2>
     </div>
   </body>
 </html>

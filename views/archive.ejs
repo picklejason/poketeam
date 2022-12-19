@@ -44,12 +44,12 @@
       <ul>
         <% if (current == 1) { %>
         <li class="disabled">
-          <strong><a>&lt;&lt;</a></strong>
+          <strong><a>&laquo;</a></strong>
         </li>
         <% } else { %>
         <li>
           <strong>
-            <a class="select-text" href="/archive/?page=1">&lt;&lt;</a>
+            <a class="select-text" href="/archive/?page=1">&laquo;</a>
           </strong>
         </li>
         <% } %> <% let i = (Number(current) > 5 ? Number(current) - 4 : 1) %> <%
@@ -72,13 +72,13 @@
         </li>
         <% } %> <% } %> <% if (current == pages) { %>
         <li class="disabled">
-          <strong><a>&gt;&gt;</a></strong>
+          <strong><a>&raquo;</a></strong>
         </li>
         <% } else { %>
         <li>
           <strong>
             <a class="select-text" href="/archive/?page=<%= pages %>">
-              &gt;&gt;
+              &raquo;
             </a>
           </strong>
         </li>
