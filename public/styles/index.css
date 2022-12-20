@@ -77,7 +77,7 @@ input[type="text"] {
   display: block;
 }
 
-input[type="submit"] { 
+input[type="submit"], #save { 
   font: 900 2em "Pokemon";
   background: none;
   border: none;
@@ -86,7 +86,7 @@ input[type="submit"] {
   letter-spacing: 0.05rem;
 }
 
-.container {
+.container, #save {
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -153,14 +153,17 @@ input[type="submit"] {
   font-weight: bold;
 }
 
-.team {
-  display: flex;
+.team-container {
   position: fixed;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 1920px;
+}
+
+.team {
+  display: flex;
 }
 
 .team img {

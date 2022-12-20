@@ -5,6 +5,8 @@
     <title><%- name %>'s Team</title>
     <link href="../styles/index.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   </head>
   <body>
     <div class="link-container">
@@ -15,21 +17,37 @@
       </h2>
       <h2><a class="select-text home" href="/">Home</a></h2>
     </div>
-    <h1><%- name %>'s Team</h1>
-    <div class="team">
-      <% pokemons.forEach((pokemon, index) => { %>
-      <a class="select-text" href="../pokemon/<%= pokemon %>">
-        <img
-          src="<%= sprites[index] %>"
-          alt="<%= pokemon %>"
-          class="select-image"
-        />
-        <br />
-        <span>
-          <b><%= pokemon.charAt(0).toUpperCase() + pokemon.slice(1) %></b>
-        </span>
-      </a>
-      <% }); %>
+    <div class="team-container">
+      <h1><%- name %>'s Team</h1>
+      <div class="team">
+        <% pokemons.forEach((pokemon, index) => { %>
+        <a class="select-text" href="../pokemon/<%= pokemon %>">
+          <img
+            src="<%= sprites[index] %>"
+            alt="<%= pokemon %>"
+            class="select-image"
+          />
+          <br />
+          <span>
+            <b><%= pokemon.charAt(0).toUpperCase() + pokemon.slice(1) %></b>
+          </span>
+        </a>
+        <% }); %>
+      </div>
+      <br />
     </div>
+    <button class="select-text" id="save" onclick="saveTeam()">Save</button>
+    <script>
+      function saveTeam() {
+        html2canvas(document.querySelector(".team-container"), {
+          useCORS: true,
+          backgroundColor: null,
+        }).then((canvas) => {
+          canvas.toBlob(function (blob) {
+            window.saveAs(blob, "my_team.png");
+          });
+        });
+      }
+    </script>
   </body>
 </html>
