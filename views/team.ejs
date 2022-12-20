@@ -18,12 +18,18 @@
     <h1><%- name %>'s Team</h1>
     <div class="team">
       <% pokemons.forEach((pokemon, index) => { %>
-      <a class="select-text" href="../pokemon/<%= pokemon %>"
-        ><img
+      <a class="select-text" href="../pokemon/<%= pokemon %>">
+        <img
           src="<%= sprites[index] %>"
           alt="<%= pokemon %>"
-          class="select-image" /></a
-      ><% }); %>
+          class="select-image"
+        />
+        <br />
+        <span>
+          <b><%= pokemon.charAt(0).toUpperCase() + pokemon.slice(1) %></b>
+        </span>
+      </a>
+      <% }); %>
     </div>
   </body>
 </html>

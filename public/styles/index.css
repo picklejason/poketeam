@@ -154,6 +154,7 @@ input[type="submit"] {
 }
 
 .team {
+  display: flex;
   position: fixed;
   top: 45%;
   left: 50%;
@@ -163,7 +164,7 @@ input[type="submit"] {
 }
 
 .team img {
-  width: 15%; 
+  width: 100%; 
 }
 
 .select-image {
