@@ -41,7 +41,7 @@
       function saveTeam() {
         html2canvas(document.querySelector(".team-container"), {
           useCORS: true,
-          backgroundColor: null,
+          backgroundColor: "#D4D3DD",
         }).then((canvas) => {
           canvas.toBlob(function (blob) {
             window.saveAs(blob, "my_team.png");
