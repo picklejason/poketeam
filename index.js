@@ -12,17 +12,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 require("dotenv").config();
 
-const userName = process.env.MONGO_DB_USERNAME;
-const password = process.env.MONGO_DB_PASSWORD;
 const databaseAndCollection = {
   db: process.env.MONGO_DB_NAME,
   collection: process.env.MONGO_COLLECTION,
 };
-
 const portNumber = process.env.PORT || 3000;
 const { MongoClient, ServerApiVersion } = require("mongodb");
-
-const uri = `mongodb+srv://${userName}:${password}@cluster0.tl7li.mongodb.net/?retryWrites=true&w=majority`;
+const uri = process.env.MONGO_DB_URI;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
